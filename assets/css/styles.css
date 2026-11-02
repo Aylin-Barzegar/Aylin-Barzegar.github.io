@@ -2070,3 +2070,150 @@ body { background: var(--paper); font-size: 17px; }
 
 .project-tech { overflow-wrap: anywhere; }
 .course-tab:not(.is-active):hover { background: #f4e4d5; border-color: #a47f6d; }
+
+
+/* ===== BALANCED TYPE SCALE & NUMBER-FREE EDITORIAL LAYOUT =====
+   Primary text is comfortably readable, while headings are more restrained.
+   Numeric dates, course grades and research facts are intentionally unchanged.
+*/
+:root {
+  --type-body: 17px;
+  --type-small: 14px;
+  --type-label: 13px;
+  --type-heading: clamp(40px, 4vw, 59px);
+  --type-subheading: clamp(25px, 2.25vw, 32px);
+}
+body { font-size: var(--type-body); line-height: 1.7; }
+.brand-name { font-size: 10px; letter-spacing: .16em; }
+.main-nav a, .header-action { font-size: 15px; }
+.intro-note { font-size: 13px; letter-spacing: .12em; }
+.hero h1 {
+  font-size: clamp(47px, 4.35vw, 67px);
+  line-height: 1.09;
+  letter-spacing: -.042em;
+}
+.hero-role { font-size: clamp(21px, 2vw, 28px); line-height: 1.32; }
+.hero-lede { font-size: 17.5px; line-height: 1.7; }
+.hero-fields { font-size: 11px; letter-spacing: .12em; }
+.pill, .read-link, .project-more, .course-tab { font-size: 15px; }
+.section h2, .focus-section h2, .teaching-section h2, .skills-section h2 {
+  font-size: var(--type-heading);
+  line-height: 1.12;
+  letter-spacing: -.038em;
+}
+.section-head { padding-top: 45px; padding-bottom: 35px; }
+.section-intro { font-size: 17px; line-height: 1.72; }
+.section-id, .section-subnote, .overline, .contact-top,
+.pub-category, .degree-year, .project-info .project-count,
+.teaching-details .ta-period, .dialog-tag {
+  font-size: var(--type-label);
+  line-height: 1.55;
+  letter-spacing: .09em;
+}
+.section-id, .overline { font-weight: 700; }
+.section-subnote { letter-spacing: .035em; }
+/* Publication rows no longer reserve an empty column for item numbers. */
+.pub-item {
+  grid-template-columns: minmax(0, 1fr) 190px;
+  gap: clamp(25px, 3.4vw, 52px);
+  padding: 32px 0 38px;
+}
+.pub-body { min-width: 0; }
+.pub-body h3 {
+  font-size: var(--type-subheading);
+  line-height: 1.3;
+  letter-spacing: -.022em;
+}
+.pub-authors { font-size: 15px; line-height: 1.6; }
+.pub-summary, .project-info>p:not(.project-tech), .degree p,
+.teaching-details>p, .teaching-details .teaching-support {
+  font-size: 17px;
+  line-height: 1.73;
+}
+.pub-meta { font-size: 14px; line-height: 1.6; }
+.status { font-size: 13px; }
+.focus-row {
+  grid-template-columns: minmax(0, 1fr) 24px;
+  gap: 16px;
+  min-height: 107px;
+}
+.focus-row h3 { font-size: clamp(23px, 2.1vw, 29px); line-height: 1.32; }
+.degree h3 { font-size: clamp(26px, 2.2vw, 32px); line-height: 1.3; }
+.gpa strong { font-size: 31px; }
+.coursework-heading h3 { font-size: clamp(29px, 2.8vw, 40px); line-height: 1.2; }
+.course-table thead, .course-table th { font-size: 13px; }
+.course-table td { font-size: 16px; line-height: 1.55; }
+.course-tab span { font-size: 12px; }
+/* Teaching layout becomes a balanced two-column composition. */
+.teaching-section {
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  gap: clamp(35px, 6vw, 90px);
+}
+.teaching-details h3 { font-size: 29px; }
+.teaching-courses span { font-size: 13px; }
+.project-info h3 { font-size: clamp(27px, 2.55vw, 36px); line-height: 1.27; }
+.project-info .project-tech { font-size: 14px; line-height: 1.65; }
+.project-art .art-small, .project-art .art-artifact {
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: .08em;
+}
+.skill-category h3 { font-size: 14px; letter-spacing: .08em; }
+.skill-category p { font-size: clamp(19px, 1.7vw, 23px); line-height: 1.55; }
+.contact-section h2 { font-size: clamp(42px, 4.2vw, 62px); line-height: 1.14; }
+.contact-email { font-size: clamp(18px, 1.85vw, 25px); }
+.contact-bottom, .contact-bottom a { font-size: 15px; }
+.site-footer p { font-size: 13px; }
+.dialog-scroll h2 { font-size: clamp(28px, 3vw, 38px); line-height: 1.25; }
+.dialog-scroll h3 { font-size: 14px; }
+.dialog-scroll p, .dialog-scroll ul { font-size: 16px; }
+.dialog-scroll .dialog-note { font-size: 14px; }
+
+@media (max-width: 1150px) {
+  .hero h1 { font-size: clamp(45px, 4.6vw, 62px); }
+  .pub-item { grid-template-columns: minmax(0, 1fr) 155px; gap: 25px; }
+}
+@media (max-width: 850px) {
+  .hero h1 { font-size: clamp(46px, 7.4vw, 66px); }
+  .pub-item { grid-template-columns: minmax(0, 1fr); gap: 17px; }
+  .pub-meta { grid-column: auto; padding-top: 0; }
+  .teaching-section { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 30px; }
+}
+@media (max-width: 600px) {
+  .intro-note { font-size: 12px; }
+  .hero h1 { font-size: clamp(39px, 8.4vw, 51px); line-height: 1.1; }
+  .hero-role { font-size: clamp(20px, 5vw, 25px); }
+  .hero-lede { font-size: 16.5px; }
+  .hero-fields { display: none; }
+  .section h2, .focus-section h2, .teaching-section h2, .skills-section h2 {
+    font-size: clamp(36px, 8.3vw, 46px);
+    line-height: 1.14;
+  }
+  .section-head { padding: 35px 0 28px; }
+  .section-id, .section-subnote, .overline, .contact-top,
+  .pub-category, .degree-year, .project-info .project-count { font-size: 12.5px; }
+  .section-intro { font-size: 16.5px; }
+  .pub-item { display: block; padding: 29px 0 33px; }
+  .pub-body h3 { font-size: clamp(24px, 5.9vw, 29px); }
+  .pub-summary, .project-info>p:not(.project-tech), .degree p,
+  .teaching-details>p, .teaching-details .teaching-support { font-size: 16.5px; }
+  .pub-meta { padding-top: 20px; font-size: 13.5px; }
+  .focus-row h3 { font-size: 23px; }
+  .degree h3 { font-size: 26px; }
+  .coursework-heading h3 { font-size: clamp(27px, 6.5vw, 34px); }
+  .course-table td { font-size: 14px; }
+  .course-table th { font-size: 12px; }
+  .teaching-section { display: block; }
+  .teaching-details h3 { font-size: 27px; }
+  .project-info h3 { font-size: clamp(26px, 6.4vw, 32px); }
+  .skill-category p { font-size: 20px; }
+  .contact-section h2 { font-size: clamp(38px, 9vw, 49px); }
+  .contact-email { font-size: clamp(17px, 4.3vw, 21px); }
+  .contact-top { font-size: 12px; }
+  .site-footer p { font-size: 12px; }
+}
+@media (max-width: 365px) {
+  .hero h1 { font-size: 38px; }
+  .course-table td { font-size: 13.5px; }
+  .course-table th { font-size: 12px; }
+}
